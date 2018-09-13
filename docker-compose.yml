@@ -1,21 +1,20 @@
 #Aiden Fisher
 version: '3'
 services:
-	flaskapp:
-		build: ./flaskapp
-		image: flaskapp
-		networks:
-		    - app
-	nginx:
-		build: ./nginx
-		image: nginx
-		ports:
-		    - 8080:80
-		networks:
-		    - app
-		depends_on:
-		    - flaskapp
-	redis:
-		image: "redis:alpine"
+    flaskapp:
+	image: fishaw1/flaskapp
+	networks:
+	    - app
+    nginx:
+	image: fishaw1/nginx
+	ports:
+	    - 8080:80
+	networks:
+	    - app
+    redis:
+	image: "redis:latest"
+	networks:
+	    - app
 networks:
-	app:
+    app:
+	image: overlay
